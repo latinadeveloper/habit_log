@@ -1,5 +1,6 @@
 class Habit < ActiveRecord::Base
   validates :title, presence: true
+  validates :description, presence: true
   #description
 
   belongs_to :user
