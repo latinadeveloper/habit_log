@@ -1,14 +1,11 @@
 class UserController < ApplicationController
-  configure do
-    set :views, 'app/views/users'
-  end
 
   get '/signup' do
 
     if session[:id]
       redirect to '/habits'
     end
-    erb :signup
+    erb :'users/signup'
   end
 
   post '/signup' do
@@ -22,6 +19,27 @@ class UserController < ApplicationController
      end
 
   end
+
+  get '/login' do
+    if logged_in?
+      redirect to '/habits'
+    end
+    erb :'users/login'
+  end
+
+  post '/login' do
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:id] = @user.id
+      redirect to '/habits'
+    end
+  end
+
+  get '/logout' do
+    session.clear
+    redirect to '/login'
+  end
+
 
 
 end
