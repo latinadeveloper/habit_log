@@ -19,13 +19,19 @@ What I did today<br><br>
 <br>
 
 <label for="completed">check if completed</label>
+<input type="hidden" name="activity_log[completed]" value="false">
 <input id="completed" type="checkbox" name="activity_log[completed]" value="true">
 <br>
 
 <input type="submit" value="submit">
 </form>
 
+<br>
 
+ <% @habit.activity_logs.each do |activity| %>
+   <%= activity.date.strftime("%A %B %-d") %> --- <%= activity.daily_comment %>
+   <br>
+<% end %>
 
 
 

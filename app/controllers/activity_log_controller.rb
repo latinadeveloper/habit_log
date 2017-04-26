@@ -15,13 +15,6 @@ class ActivityLogController < ApplicationController
   end
 
 
-  delete '/habits/:id/delete' do
-    set_habit
-    if @habit.user == current_user
-      @habit.delete
-    end
-    redirect to '/habits'
-  end
 
 
 end
