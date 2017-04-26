@@ -1,1 +1,29 @@
-body {background-color: #eee}
+body {
+  background-color: #eee;
+  font-family: 'Didact Gothic',  sans-serif;
+}
+
+.welcome {
+  margin-left: 15%;
+}
+
+#navbar {
+	margin-right: 15%;
+	background-color: white;
+  font-family: 'Pacifico', cursive;
+
+}
+
+#navbar a {
+	color: black;
+	font-size: 1.5em;
+}
+
+#navbar a:hover {
+	color: darkturquoise;
+}
+
+
+.logo img {
+	width: 3em;
+}
