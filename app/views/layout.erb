@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheet.css" type="text/css" media="all">
+    <title>My Page</title>
+  </head>
+
+
+  <body>
+    <header>
+      <nav>
+      <% if logged_in? %><a href="/logout">Log Out</a> <%end%>
+    </nav>
+    </header>
+
+
+    <div id='main'>
+      <%= yield %>
+    </div>
+  </body>
+</html>
