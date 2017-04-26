@@ -1,11 +1,18 @@
 
- Welcome, <%= current_user.username%>.
+ <div > Welcome, <%= current_user.username%>. Habits you are working on.</div>
+<div class="row">
+<div class="col-md-8" style="background-color: yellow">
 
-<br>
-<ul>
-<% @habits.each do |habit|%>
-  <li> <a href="/habits/<%=habit.id %>" ><%= habit.title %> </a>
-    --------- <%= habit.description %> </li>
-  <% end %>
+   <ul>
+     <% @habits.each do |habit|%>
+     <li> <a href="/habits/<%=habit.id %>" ><%= habit.title %> </a>
+       --------- <%= habit.description %> </li>
+       <% end %>
 
-</ul>
+    </ul>
+
+
+ </div>
+
+ <div class="col-md-4" style="background-color: lightblue">  Add Habit</div>
+</div>
