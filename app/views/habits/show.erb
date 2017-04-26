@@ -1,37 +1,36 @@
-Activity Log for <%= @habit.title %> Habit desired: <%= @habit.description %>
+<div class="col-md-8" style="background-color: lightgrey">Activity Log for <%= @habit.title %> Habit desired: <%= @habit.description %></div>
+<div class="col-md-4" style="background-color: lightpink"> content button here delete edit habit</div>
+<br>
 
+<div class="row"><hr></div>
 
-<form action="/habits/<%=@habit.id%>/activity" method="POST">
+<div class="col-md-3" style="background-color: yellow">
+  <form action="/habits/<%=@habit.id%>/activity" method="POST">
+  <label for="date">date</label>
+  <input id="date" type="date" name="activity_log[date]">
+</div>
 
-<br><br>
-<label for="date">date</label>
-<input id="date" type="date" name="activity_log[date]">
+<div class="col-md-6" style="background-color: grey">
+  <label for="daily_comment">Today's Comment</label>
+  <textarea id="daily_comment" type="text" name="activity_log[daily_comment]">
+  </textarea>
+</div>
 
-------
+<div class="col-md-3" style="background-color: lightblue">
+  <label for="completed">did today</label>
+  <input type="hidden" name="activity_log[completed]" value="false">
+  <input id="completed" type="checkbox" name="activity_log[completed]" value="true">
+  <input type="submit" value="save activity">
+  </form>
+</div>
 
-<label for="daily_comment">Today's Comment</label>
-<textarea id="daily_comment" type="text" name="activity_log[daily_comment]">
-</textarea>
+<br><hr><br>
 
-----
-
-<label for="completed">did today</label>
-<input type="hidden" name="activity_log[completed]" value="false">
-<input id="completed" type="checkbox" name="activity_log[completed]" value="true">
-
-
-<input type="submit" value="todays activity">
-</form>
-
-<br><br><br>
-
+88888888888888
  <% @habit.activity_logs.each do |activity| %>
    <%= activity.date.strftime("%A %B %-d") %> --- <%= activity.daily_comment %>
 
-   <form action="/habits/<%=@habit.id%>/delete" method="post">
-   <input id="hidden" type="hidden" name="_method" value="delete">
-   <input type="submit" value="Edit Activity">
- </form>
+  <a href="/activity/<%=activity.id%>/edit">edit activity </a>  <br>
 
 
 <% end %>

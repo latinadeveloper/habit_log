@@ -13,7 +13,7 @@ class ActivityLogController < ApplicationController
     end
   end
 
-  get '/activity/:id//edit' do
+  get '/activity/:id/edit' do
 
     if logged_in?
       @activity = ActivityLog.find(params[:id])
