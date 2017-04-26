@@ -1,34 +1,32 @@
 Activity Log for <%= @habit.title %>
-<br>
+<br><br>
 
 Habit description <%= @habit.description %>
 
 
-<form action="/habits/<%@habit.id%>/activity" method="POST">
+<form action="/habits/<%=@habit.id%>/activity" method="POST">
 
-What I did today<br>
+What I did today<br><br>
 <label for="date">date</label>
-<input id="date" type="date" name="date">
+<input id="date" type="date" name="activity_log[date]">
 
-<br>
+<br><br>
 
-
-<br>
 <label for="daily_comment">Today's Comment</label>
-<textarea id="daily_comment" type="text" name="daily_comment">
+<textarea id="daily_comment" type="text" name="activity_log[daily_comment]">
 </textarea>
 
 <br>
 
 <label for="completed">check if completed</label>
-<input id="completed" type="checkbox" name="completed" value="true"/>
+<input id="completed" type="checkbox" name="activity_log[completed]" value="true">
 <br>
-
-
-
 
 <input type="submit" value="submit">
 </form>
+
+
+
 
 
 <!--Delete button -->
