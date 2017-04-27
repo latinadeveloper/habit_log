@@ -16,6 +16,7 @@ class HabitController < ApplicationController
     if logged_in?
       erb :'habits/new'
     else
+
       redirect to '/login'
     end
   end

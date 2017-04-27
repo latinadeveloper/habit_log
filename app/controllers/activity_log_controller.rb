@@ -9,6 +9,7 @@ class ActivityLogController < ApplicationController
       @habit.activity_logs.create(params[:activity_log])
       redirect to "/habits/#{@habit.id}"
     else
+
       redirect to '/login'
     end
   end
