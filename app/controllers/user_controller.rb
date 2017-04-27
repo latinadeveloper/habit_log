@@ -1,5 +1,7 @@
+require 'rack-flash'
 class UserController < ApplicationController
-
+use Rack::Flash
+enable :sessions
   get '/signup' do
 
     if session[:id]
@@ -15,13 +17,18 @@ class UserController < ApplicationController
        session[:id] = @user.id
        redirect to '/habits'
      else
-         redirect to '/signup'
+       flash[:notice] = "error: must be a valid email, username and password longer than 8 characters"
+       puts flash.inspect
+       puts session.inspect
+      #  flash[:message] = @user.errors.full_message.join(", ")
+        redirect to '/signup'
      end
 
   end
 
   get '/login' do
     if logged_in?
+
       redirect to '/habits'
     end
     erb :'users/login'
