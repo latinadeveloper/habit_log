@@ -1,9 +1,16 @@
 <div>Daily Activity Log</div>
 <div class="col-md-8" style="background-color: lightgrey">Activity Log for <%= @habit.title %> Habit desired: <%= @habit.description %></div>
-<div class="col-md-4" style="background-color: lightpink"> content button here delete edit habit</div>
+<div class="col-md-4" style="background-color: lightpink">
+  <a href="/habits/<%= @habit.id %>/edit">Edit Habit</a>
+  <!--Delete HABIT button -->
+  <form action="/habits/<%=@habit.id%>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Habit">
+  </form>
+</div>
 <br>
 
-<div class="row"><hr></div>
+<div class="row"></div>
 
 <div class="col-md-3" style="background-color: yellow">
   <form action="/habits/<%=@habit.id%>/activity" method="POST">
@@ -28,18 +35,8 @@
 <br><br>
 
 <hr>
- <% @habit.activity_logs.each do |activity| %>
+ <% @habit.activity_logs.order(date: :desc).each do |activity| %>
    <%= activity.date.strftime("%A %B %-d") %> --- <%= activity.daily_comment %>
 
   <a href="/activity/<%=activity.id%>/edit">edit activity </a>  <br>
 <% end %>
-
-
-
-<!--Delete HABIT button -->
-<form action="/habits/<%=@habit.id%>/delete" method="post">
-<input id="hidden" type="hidden" name="_method" value="delete">
-<input type="submit" value="Delete Habit">
-</form>
-
-<a href="/habits/<%= @habit.id %>/edit">Edit Habit</a>

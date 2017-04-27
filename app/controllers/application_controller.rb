@@ -1,3 +1,4 @@
+require 'rack-flash'
 class ApplicationController < Sinatra::Base
   def set_habit
     @habit = Habit.find_by_id(params[:id])
