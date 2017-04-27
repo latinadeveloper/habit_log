@@ -5,7 +5,7 @@ class HabitController < ApplicationController
 
   get '/habits' do
     if logged_in?
-      @habits = Habit.all
+      @habits = current_user.habits
       erb :'habits/index'
     else
       redirect to '/login'
