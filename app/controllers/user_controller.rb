@@ -17,13 +17,9 @@ class UserController < ApplicationController
 
      if @user.save
        session[:id] = @user.id
-
        redirect to '/habits'
      else
-       flash[:notice] = "error: must be a valid email, username and password longer than 8 characters"
-       puts flash.inspect
-       puts session.inspect
-      #  flash[:message] = @user.errors.full_message.join(", ")
+        flash_error(@user)
         redirect to '/signup'
      end
 
@@ -31,7 +27,6 @@ class UserController < ApplicationController
 
   get '/login' do
     if logged_in?
-
       redirect to '/habits'
     end
     erb :'users/login'
@@ -42,6 +37,9 @@ class UserController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:id] = @user.id
       redirect to '/habits'
+    else
+      flash[:notice] = "user or password invalid"
+      redirect to '/login'
     end
   end
 

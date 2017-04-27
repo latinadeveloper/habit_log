@@ -1,11 +1,24 @@
 body {
-  background-color: #eee;
+  background-color: white;
   font-family: 'Didact Gothic',  sans-serif;
+}
+
+label {
+  width: 5em;
+}
+
+h2 {
+  font-family: 'Pacifico', cursive;
 }
 
 #main {
   margin: 0 15% 0 15%;
 
+}
+
+#flash {
+  color: red;
+  margin: 0 30% 0 30%;
 }
 
 #navbar {
@@ -24,7 +37,12 @@ body {
 	color: darkturquoise;
 }
 
-
+.signup{
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  text-align: center;
+}
 .logo img {
 	width: 3em;
 }

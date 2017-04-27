@@ -1,11 +1,7 @@
-<%puts flash.inspect %>
-<% if flash.has?(:notice) %>
-<%= flash[:notice] %>
-<% end %>
-
+<div class="signup">
 
 <form action='/signup' method="POST">
-<h1>Sign Up Below:</h1>
+<h2>Sign Up</h2>
 
 <label for="username">username</label>
 <input  type="text" name="username" /><br>
@@ -21,3 +17,4 @@
 
 <input type="submit" value="Sign Up">
 </form>
+</div>

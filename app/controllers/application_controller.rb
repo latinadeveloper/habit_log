@@ -2,7 +2,9 @@
 require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
-
+  def flash_error(model)
+    flash[:notice] = model.errors.full_messages.join(", ")
+  end
   register Sinatra::ActiveRecordExtension
     set :session_secret, "my_application_secret"
     set :public_folder, 'public'
