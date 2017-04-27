@@ -6,7 +6,10 @@ class ActivityLogController < ApplicationController
   post '/habits/:id/activity' do
     if logged_in?
       set_habit
-      @habit.activity_logs.create(params[:activity_log])
+      activity = @habit.activity_logs.new(params[:activity_log])
+      if !activity.save
+        flash_error(activity)
+      end
       redirect to "/habits/#{@habit.id}"
     else
 
