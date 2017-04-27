@@ -2,7 +2,7 @@
 
 
 ## Overview
-Welcome to Habbit Rabbit
+Welcome to Habit Rabbit
 
 Habits can be seen as the foundation of our behavior. In the begining as a
 habit is desired, awareness and work is put into it until that habit becomes
@@ -14,3 +14,22 @@ With Habbit Rabbit you can create a daily log of the habits you are wanting to e
 “Cultivate the habit of being grateful for every good thing that comes to you, and to give thanks continuously.
 And because all things have contributed to your advancement, you should include all things in your gratitude.”
 ― Ralph Waldo Emerson
+
+
+## Installation
+Clone/Download to your computer.
+Type bundle install in command line to install the gems.
+open main index file located under the views folder in your browser.
+
+
+## Contributing
+Bug reports and pull requests are welcome on GitHub at  https://github.com/latinadeveloper/100DaysOfCode-cli-app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+
+
+## Authors
+
+Isis Tejeda
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
