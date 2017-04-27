@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :habits
 
-  extend Slugifiable::ClassMethods
-  include Slugifiable::InstanceMethods
+  # extend Slugifiable::ClassMethods
+  # include Slugifiable::InstanceMethods
 
 end

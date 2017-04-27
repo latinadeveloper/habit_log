@@ -6,7 +6,7 @@ class Habit < ActiveRecord::Base
   belongs_to :user
   has_many :activity_logs
 
-  extend Slugifiable::ClassMethods
-  include Slugifiable::InstanceMethods
+  # extend Slugifiable::ClassMethods
+  # include Slugifiable::InstanceMethods
 
 end
