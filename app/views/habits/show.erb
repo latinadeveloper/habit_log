@@ -1,6 +1,9 @@
-<div>Daily Activity Log</div>
-<div class="col-md-8" style="background-color: lightgrey">Activity Log for <%= @habit.title %> Habit desired: <%= @habit.description %></div>
-<div class="col-md-4" style="background-color: lightpink">
+<div > <h2> Daily Activity Log</h2></div>
+<div class="col-md-8" >
+  Title:  <%= @habit.title %>  Habit desired: <%= @habit.description %></div>
+
+<div class="col-md-4" >
+  <button type="button" class="btn btn-warning">Warning</button>
   <a href="/habits/<%= @habit.id %>/edit">Edit Habit</a>
   <!--Delete HABIT button -->
   <form action="/habits/<%=@habit.id%>/delete" method="post">
@@ -12,20 +15,21 @@
 
 <div class="row"></div>
 
-<div class="col-md-3" style="background-color: yellow">
+<div class="col-md-3" >
   <form action="/habits/<%=@habit.id%>/activity" method="POST">
-  <label for="date">date</label>
+  <label for="date">Date</label>
   <input id="date" type="date" name="activity_log[date]">
 </div>
 
-<div class="col-md-6" style="background-color: grey">
-  <label for="daily_comment">Today's Comment</label>
+<div class="col-md-6" >
+  <label for="daily_comment"> Comment</label>
+  <br>
   <textarea id="daily_comment" type="text" name="activity_log[daily_comment]">
   </textarea>
 </div>
 
-<div class="col-md-3" style="background-color: lightblue">
-  <label for="completed">did today</label>
+<div class="col-md-3" >
+  <label for="completed">did today?</label>
   <input type="hidden" name="activity_log[completed]" value="false">
   <input id="completed" type="checkbox" name="activity_log[completed]" value="true">
   <input type="submit" value="save activity">

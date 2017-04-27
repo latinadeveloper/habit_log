@@ -25,6 +25,7 @@ class HabitController < ApplicationController
     if habit.save
       redirect to '/habits'
     else
+      flash[:notice] = "must have a title and description"
       redirect to '/habits/new'
     end
   end

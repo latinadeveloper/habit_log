@@ -1,7 +1,8 @@
+<div > <h2>  Edit Habit </h2></div>
 <form action="/habits/<%=@habit.id%>" method="POST">
 <input id="hidden" type="hidden" name="_method" value="patch">
 
-Edit Habit<br>
+<br>
 <label for="title">title</label>
 <input id="title" type="text" name="habit[title]" value="<%= @habit.title %>">
 
