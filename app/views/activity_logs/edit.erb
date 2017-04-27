@@ -1,0 +1,21 @@
+Edit activity log entry
+
+<form action="/activity/<%=@activity.id%>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
+
+<br>
+<label for="date">date</label>
+<input id="date" type="date" name="activity[date]" value="<%= @activity.date %>">
+
+<br>
+
+
+<br>
+<label for="daily_comment">daily_comment</label>
+<textarea id="daily_comment" type="text" name="activity[daily_comment]" ><%= @activity.daily_comment %>
+</textarea>
+
+<br>
+
+<input type="submit" value="submit">
+</form>

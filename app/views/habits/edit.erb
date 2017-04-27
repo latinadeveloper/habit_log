@@ -1,0 +1,18 @@
+<form action="/habits/<%=@habit.id%>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
+
+Edit Habit<br>
+<label for="title">title</label>
+<input id="title" type="text" name="habit[title]" value="<%= @habit.title %>">
+
+<br>
+<br>
+
+<label for="description">description</label>
+<textarea id="description" type="text" name="habit[description]" > <%= @habit.description %>
+</textarea>
+
+<br>
+
+<input type="submit" value="submit">
+</form>
