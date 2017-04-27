@@ -1,3 +1,4 @@
+<div>Daily Activity Log</div>
 <div class="col-md-8" style="background-color: lightgrey">Activity Log for <%= @habit.title %> Habit desired: <%= @habit.description %></div>
 <div class="col-md-4" style="background-color: lightpink"> content button here delete edit habit</div>
 <br>
@@ -24,15 +25,13 @@
   </form>
 </div>
 
-<br><hr><br>
+<br><br>
 
-88888888888888
+<hr>
  <% @habit.activity_logs.each do |activity| %>
    <%= activity.date.strftime("%A %B %-d") %> --- <%= activity.daily_comment %>
 
   <a href="/activity/<%=activity.id%>/edit">edit activity </a>  <br>
-
-
 <% end %>
 
 
