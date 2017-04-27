@@ -1,7 +1,9 @@
 <%puts flash.inspect %>
 <% if flash.has?(:notice) %>
-<%= flash[:notice] %> Flash
+<%= flash[:notice] %>
 <% end %>
+
+
 <form action='/signup' method="POST">
 <h1>Sign Up Below:</h1>
 

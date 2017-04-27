@@ -1,7 +1,9 @@
+require 'sinatra/base'
 require 'rack-flash'
+
 class UserController < ApplicationController
-use Rack::Flash
-enable :sessions
+# use Rack::Flash
+#enable :sessions
   get '/signup' do
 
     if session[:id]
@@ -15,6 +17,7 @@ enable :sessions
 
      if @user.save
        session[:id] = @user.id
+
        redirect to '/habits'
      else
        flash[:notice] = "error: must be a valid email, username and password longer than 8 characters"

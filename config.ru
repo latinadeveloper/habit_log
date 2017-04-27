@@ -5,8 +5,8 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
-
 use ActivityLogController
 use HabitController
 use UserController
+
 run ApplicationController
