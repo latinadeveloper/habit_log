@@ -1,14 +1,15 @@
 <div > <h2> Daily Activity Log</h2></div>
 
-  <div class="row">Title:  <%= @habit.title %>  Habit desired: <%= @habit.description %></div>
-
-
-
-
+  <div class="row">Title:  <%= @habit.title %>
+    <br>
+     Habit desired: <%= @habit.description %>
+  </div>
+<br>
 <div class="col-md-12" >
   <form action="/habits/<%=@habit.id%>/activity" method="POST">
 
     <div class="col-md-4" >
+
       <label for="date">Date</label>
       <input id="date" type="date" name="activity_log[date]">
     </div>
@@ -25,20 +26,24 @@
       <br>
       <input type="hidden" name="activity_log[completed]" value="false">
       <input id="completed" type="checkbox" name="activity_log[completed]" value="true">
-      <input type="submit" value="save ">
+      <input type="submit" value=" Save ">
       </form>
+
     </div>
+<br>
 </div>
-
+<br><br>
 <div class="row">
+  <br><br>
  <% @habit.activity_logs.order(date: :desc).each do |activity| %>
-   <%= activity.date.strftime("%A %B %-d") %> --- <%= activity.daily_comment %>
+   <%= activity.date.strftime("%A %B %-d") %> --- <%= activity.daily_comment %> ----
 
-  <a href="/activity/<%=activity.id%>/edit">edit activity </a>  <br>
+  <button type="button" class=".btn-xs " > <a href="/activity/<%=activity.id%>/edit">Edit</a> </button> <br>
+  <br>
 <% end %>
 </div>
 
-<br><br>
+
 <br>
 <br>
 <div class="row">
