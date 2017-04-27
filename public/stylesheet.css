@@ -14,6 +14,9 @@ h2 {
   color: #50514f;
 }
 
+.btn-sm{
+  color: black;
+}
 .right_column{
   text-align: right;
   font-family: 'Pacifico', cursive;
