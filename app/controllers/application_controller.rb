@@ -15,17 +15,12 @@ class ApplicationController < Sinatra::Base
     use Rack::Flash
 
 
-  def set_habit
-    @habit = Habit.find_by_id(params[:id])
-  end
-
-  # configure do
-  #   set :public_folder, 'public'
-  #   set :views, 'app/views'
-  #   enable :sessions
-  #   set :session_secret, "habit"
-  #
-  # end
+    def set_habit
+      @habit = Habit.find_by_id(params[:id])
+      if @habit.user != current_user
+        redirect to '/login'
+      end
+    end
 
   helpers do
     def logged_in?

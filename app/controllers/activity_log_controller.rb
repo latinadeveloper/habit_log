@@ -1,7 +1,5 @@
 class ActivityLogController < ApplicationController
-  def set_habit
-    @habit = Habit.find_by_id(params[:id])
-  end
+
   #creates new activity
   post '/habits/:id/activity' do
     if logged_in?
@@ -17,11 +15,17 @@ class ActivityLogController < ApplicationController
     end
   end
 
+  def set_activity
+    @activity = ActivityLog.find(params[:id])
+    if @activity.habit.user != current_user
+      redirect to '/login'
+    end
+  end
+
   #form to edit activity
   get '/activity/:id/edit' do
-
     if logged_in?
-      @activity = ActivityLog.find(params[:id])
+      set_activity
       erb :'activity_logs/edit'
     else
       redirect to '/login'
@@ -30,7 +34,7 @@ class ActivityLogController < ApplicationController
 
   #performs update
   patch '/activity/:id' do
-    @activity = ActivityLog.find(params[:id])
+    set_activity
     if @activity.update(params[:activity])
       redirect to "/habits/#{@activity.habit.id}"
     else

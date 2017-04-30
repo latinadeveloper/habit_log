@@ -1,7 +1,5 @@
 class HabitController < ApplicationController
-  def set_habit
-    @habit = Habit.find_by_id(params[:id])
-  end
+
 
   get '/habits' do
     if logged_in?
