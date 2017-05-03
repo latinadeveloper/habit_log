@@ -1,14 +1,16 @@
 class ActivityLogController < ApplicationController
 
-  #creates new activity
   post '/habits/:id/activity' do
     if logged_in?
       set_habit
-      activity = @habit.activity_logs.new(params[:activity_log])
-      if !activity.save
-        flash_error(activity)
-      end
+      @activity_log = @habit.activity_logs.new(params[:activity_log])
+      puts @activity_log.inspect
+      if !@activity_log.save
+        flash_error(@activity_log)
+        erb :'habits/show'
+      else
       redirect to "/habits/#{@habit.id}"
+      end
     else
 
       redirect to '/login'
@@ -22,7 +24,6 @@ class ActivityLogController < ApplicationController
     end
   end
 
-  #form to edit activity
   get '/activity/:id/edit' do
     if logged_in?
       set_activity
@@ -32,7 +33,6 @@ class ActivityLogController < ApplicationController
     end
   end
 
-  #performs update
   patch '/activity/:id' do
     set_activity
     if @activity.update(params[:activity])
@@ -41,6 +41,5 @@ class ActivityLogController < ApplicationController
       redirect to "/activity/#{@activity.id}/edit"
     end
   end
-
 
 end

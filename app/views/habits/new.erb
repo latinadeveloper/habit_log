@@ -1,22 +1,14 @@
 <div class="signup">
-<form action="/habits" method="POST">
+  <form action="/habits" method="POST">
 
-<h2>Desired Habit</h2><br>
-<label for="title">Title</label>
-<br>
-<input id="title" type="text" name="habit[title]">
+    <h2>Desired Habit</h2><br>
+    <label for="title">Title</label>
 
-<br>
+    <input id="title" type="text" name="habit[title]" value="<%= @habit.title %>">
 
-
-<br>
-<label for="description">Description</label>
-<br>
-<textarea rows="4" cols="40"id="description" type="text" name="habit[description]">
-</textarea>
-
-<br>
-
-<input type="submit" value="submit">
-</form>
+    <label for="description">Description</label>
+    <textarea id="description" type="text" name="habit[description]" > <%= @habit.description %></textarea>
+    
+    <input type="submit" value="submit">
+  </form>
 <div>

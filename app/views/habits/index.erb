@@ -1,6 +1,9 @@
-<div > <h2> Welcome, <%= current_user.username%>.  Habits you are working on.</h2></div>
+<div >
+  <h2> Welcome, <%= current_user.username%>.
+    Habits you are working on.
+  </h2>
+</div>
 
-<!--list of habits-->
 <div class="container-fluid">
   <div class="row">
     <div class="clearfix -col-md-4 right_column">
@@ -10,9 +13,9 @@
 
   <div class="clearfix visible-col-md-8 habit_title" >
     <% @habits.each do |habit|%>
-    <ul> <a href="/habits/<%=habit.id %>" ><%= habit.title %> </a>
-      - - - <%= habit.description %> </ul>
+      <ul> <a href="/habits/<%=habit.id %>" ><%= habit.title %> </a>
+        - - - <%= habit.description %>
+      </ul>
      <% end %>
  </div>
-
 </div>

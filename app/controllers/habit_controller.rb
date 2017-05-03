@@ -1,6 +1,5 @@
 class HabitController < ApplicationController
 
-
   get '/habits' do
     if logged_in?
       @habits = current_user.habits
@@ -12,6 +11,7 @@ class HabitController < ApplicationController
 
   get '/habits/new' do
     if logged_in?
+      @habit = Habit.new
       erb :'habits/new'
     else
       redirect to '/login'
@@ -19,19 +19,18 @@ class HabitController < ApplicationController
   end
 
   post '/habits' do
-    ## todo persist data in the form if it fails
-    habit = current_user.habits.build(params[:habit])
-    if habit.save
+    @habit = current_user.habits.build(params[:habit])
+    if @habit.save
       redirect to '/habits'
     else
       flash[:notice] = "must have a title and description"
-      redirect to '/habits/new'
+      erb :'habits/new'
     end
   end
 
-  #Show
   get '/habits/:id' do
     redirect to '/login' if !logged_in?
+    @activity_log = ActivityLog.new
     set_habit
     erb :'habits/show'
   end
@@ -58,6 +57,5 @@ class HabitController < ApplicationController
     end
     redirect to '/habits'
   end
-
 
 end

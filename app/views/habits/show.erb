@@ -1,61 +1,61 @@
-<div > <h2> Daily Activity Log</h2></div>
+<div>
+  <h2> Daily Activity Log</h2>
+</div>
 
-  <div class="row">Title:  <%= @habit.title %>
-    <br>
-     Habit desired: <%= @habit.description %>
-  </div>
+<div class="row">Title:  <%= @habit.title %>
+  <br>
+  Habit desired: <%= @habit.description %>
+</div>
 <br>
+
 <div class="col-md-12" >
   <form action="/habits/<%=@habit.id%>/activity" method="POST">
 
     <div class="col-md-4" >
-
       <label for="date">Date</label>
-      <input id="date" type="date" name="activity_log[date]">
+      <input id="date" type="date" name="activity_log[date]" value="<%= @activity_log.date %>">
     </div>
 
     <div class="col-md-5" >
-      <label for="daily_comment"> Comment</label>
+      <label for="daily_comment">Comment</label>
       <br>
-      <textarea id="daily_comment" type="text" name="activity_log[daily_comment]">
-      </textarea>
+      <textarea id="daily_comment" type="text" name="activity_log[daily_comment]"><%= @activity_log.daily_comment %></textarea>
     </div>
 
     <div class="col-md-3" >
       <label for="completed">Did it</label>
       <br>
       <input type="hidden" name="activity_log[completed]" value="false">
-      <input id="completed" type="checkbox" name="activity_log[completed]" value="true">
+      <input id="completed" type="checkbox" name="activity_log[completed]" value="true" checked>
       <input type="submit" value=" Save ">
-      </form>
-
     </div>
+</form>
+
 <br>
+
 </div>
-<br><br>
-<div class="row">
   <br><br>
- <% @habit.activity_logs.order(date: :desc).each do |activity| %>
-   <%= activity.date.strftime("%A %B %-d") %> --- <%= activity.daily_comment %> ----
 
-  <button type="button" class=".btn-xs " > <a href="/activity/<%=activity.id%>/edit">Edit</a> </button> <br>
-  <br>
-<% end %>
-</div>
-
+  <div class="row">
+    <br>
+    <% @habit.activity_logs.order(date: :desc).each do |activity| %>
+    <%= activity.date.strftime("%A %B %-d") %> --- <%= activity.daily_comment %> ----
+    <button type="button" class=".btn-xs " > <a href="/activity/<%=activity.id%>/edit">Edit</a> </button> <br>
+    <br>
+    <% end %>
+  </div>
 
 <br>
-<br>
+
 <div class="row">
-  <div class="col-md-12 " >
-    <button type="button" class=".btn-sm " >
-      <a href="/habits/<%= @habit.id %>/edit">Edit Habit</a></button>
+  <div class="col-md-12">
+    <button type="button" class=".btn-sm">
+      <a href="/habits/<%= @habit.id %>/edit">Edit Habit</a>
+    </button>
 
-    <!--Delete HABIT button -->
     <form action="/habits/<%=@habit.id%>/delete" method="post">
-    <input id="hidden" type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Habit">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Habit">
     </form>
   </div>
-  <br>
 </div>
