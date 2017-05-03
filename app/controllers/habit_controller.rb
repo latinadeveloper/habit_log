@@ -14,13 +14,13 @@ class HabitController < ApplicationController
     if logged_in?
       erb :'habits/new'
     else
-
       redirect to '/login'
     end
   end
 
   post '/habits' do
-    habit = current_user.habits.new(params[:habit])
+    ## todo persist data in the form if it fails
+    habit = current_user.habits.build(params[:habit])
     if habit.save
       redirect to '/habits'
     else
@@ -31,21 +31,15 @@ class HabitController < ApplicationController
 
   #Show
   get '/habits/:id' do
-    if logged_in?
-      set_habit
-      erb :'habits/show'
-    else
-      redirect to '/login'
-    end
+    redirect to '/login' if !logged_in?
+    set_habit
+    erb :'habits/show'
   end
 
   get '/habits/:id/edit' do
-    if logged_in?
-      set_habit
-      erb :'habits/edit'
-    else
-      redirect to '/login'
-    end
+    redirect to '/login' if !logged_in?
+    set_habit
+    erb :'habits/edit'
   end
 
   patch '/habits/:id' do

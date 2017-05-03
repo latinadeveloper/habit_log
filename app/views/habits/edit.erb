@@ -1,19 +1,22 @@
-<div > <h2>  Edit Habit </h2></div>
+<div >
+  <h2>  Edit Habit </h2>
+</div>
+
 <form action="/habits/<%=@habit.id%>" method="POST">
-<input id="hidden" type="hidden" name="_method" value="patch">
+  <input id="hidden" type="hidden" name="_method" value="patch">
 
-<br>
-<label for="title">title</label>
-<input id="title" type="text" name="habit[title]" value="<%= @habit.title %>">
+  <br>
+  <label for="title">title</label>
+  <input id="title" type="text" name="habit[title]" value="<%= @habit.title %>">
 
-<br>
-<br>
+  <br>
+  <br>
 
-<label for="description">description</label>
-<textarea id="description" type="text" name="habit[description]" > <%= @habit.description %>
-</textarea>
+  <label for="description">description</label>
+  <textarea id="description" type="text" name="habit[description]" > <%= @habit.description %>
+  </textarea>
 
-<br>
+  <br>
 
-<input type="submit" value=" Save ">
+  <input type="submit" value=" Save ">
 </form>
